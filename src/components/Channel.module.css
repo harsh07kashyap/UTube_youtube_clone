@@ -1,0 +1,90 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbarhome {
+    width: 100%;
+    height: 60px; /* Adjust according to your navbar height */
+    background-color: #333; /* Example background color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it stays on top */
+}
+
+/* Container */
+.container {
+    display: flex;
+    margin-top: 60px; /* Same height as the navbar */
+}
+
+/* Left Sidebar Styles */
+.leftsidebar {
+    width: 250px; /* Adjust according to your sidebar width */
+    height: calc(100vh - 60px); /* Full height minus navbar */
+    background-color: #222; /* Example background color */
+    position: fixed;
+    top: 60px; /* Align with the bottom of the navbar */
+    left: 0;
+    z-index: 900; /* Stays below the navbar */
+    padding-top: 20px;
+}
+
+/* Main Content Area */
+.maincontentprofile {
+    margin-left: 250px; /* Offset by the width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Full width minus sidebar width */
+    background-color: #f4f4f4; /* Example background color */
+    min-height: calc(100vh - 60px); /* Full height minus navbar */
+}
+
+/* Additional Styling for Profile */
+.profileContainer {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profilepictures {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profilepicture img {
+    border-radius: 50%;
+    width: 100px; /* Adjust according to your needs */
+    height: 100px; /* Adjust according to your needs */
+    object-fit: cover;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.profileInfo {
+    margin-top: 20px;
+}
+
+.profileName {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profileStats {
+    font-size: 16px;
+    color: gray;
+}
+
+.cardtext:hover{
+    cursor: pointer;
+}

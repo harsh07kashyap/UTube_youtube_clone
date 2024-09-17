@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+}
+
+#root{
+  width:100%
+}
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.tooltip:hover {
+  opacity: 1;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* .navbar-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+} */
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.menu-btn,
+.search-btn,
+.voice-search-btn,
+.create-btn,
+.apps-btn,
+.notifications-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 5px;
+}
+
+.menu-btn img,
+.search-btn img,
+.voice-search-btn img,
+.create-btn img,
+.apps-btn img,
+.notifications-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.logo img {
+  height: 24px;
+}
+
+.search-bar {
+  width: 500px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px 0 0 2px;
+}
+
+.search-btn {
+  padding: 8px 12px;
+  background-color: #333;
+  border-radius: 0 2px 2px 0;
+}
+
+.voice-search-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-pic {
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+/* .container {
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+} */
+
+.container_new {
+  display: flex;
+  margin-top: 60px; /* To ensure it starts after the navbar */
+  /* background-color: burlywood; */
+  margin-left:200px
+}
+
+/* .sidebar {
+  width: 240px;
+   background-color:chocolate; 
+  color: black;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding-top: 56px;  Height of the navbar 
+  z-index: 999;
+} */
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: black;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+/* .sidebar-item:hover {
+  background-color: #383838;
+} */
+
+.sidebar-item img {
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+  
+}
+
+.sidebar-item span {
+  font-size: 14px;
+}
+
+.content {
+  margin-left: 240px;
+  padding: 20px;
+  width: 100%;
+}
+
+
+
+
+
+.navbar-home {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+/* .container {
+  display: flex;
+  margin-top: 2rem;
+} */
+
+.left-sidebar {
+  width: 14.5%; /* Adjust the width as needed */
+  /* background-color: #8d1111; */
+  padding: 15px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 60px); /* Adjust this value based on the height of your navbar */
+  position: fixed;
+  top: 60px; /* Adjust this value based on the height of your navbar */
+  overflow-y: auto;
+  left:0
+}
+
+.main-content {
+  /* margin-left: 15%; */
+  /* padding: 1rem; */
+  /* width: 100%; */
+  /* margin-top:60px */
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 0.5rem; 
+  align-content: flex-start;   */
+  justify-content: left;
+  gap:1rem;
+}
+
+.card_own {
+  background-color: #fff;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 0 0 calc(33.3333% - 20px); /* Adjust this value for the number of cards per row */
+  box-sizing: border-box;
+}
+
+.card_own img{
+  width:345px;
+  height: 175px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+/* .suggested-video {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+} */
+
+.card-body{
+  display:flex;
+  flex-direction: row;
+}
+
+.card-body-one{
+  padding-top: 1rem;
+}
+
+.card-body-two{
+  padding-left: 1rem;
+}
+
+.card-title{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-top: 0.5rem;
+  padding-bottom: 0.2rem;
+  font-size:23px;
+}
+
+.card-text{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color:rgb(15,15,15);
+  font-size:16px;
+  line-height: 20px;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  
+}
+
+p{
+  margin-bottom:0;
+}
+
+.card-text-views{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color:rgb(15,15,15);
+  font-size:14px;
+  line-height: 20px;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  
+}
+
+.card-text:hover{
+  cursor:pointer;
+}
+
+.card img:hover{
+  cursor: pointer;
+}
+
+.card svg:hover{
+  cursor:pointer;
+}
+/* .suggested-video {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+} */
+
+.suggested-video .card {
+  flex: 1 1 calc(33.333% - 1rem);  /*Adjust this value for the number of cards per row */
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.none{
+  display: none;
+}
+
+.d-flex_own {
+  display: flex ;
+  gap: 5px;
+}
+
+.maincontentprofile{
+  margin-left: 60%;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-content: flex-start;
+}
+
+.profileContainer{
+  padding: 20px;
+}
+
+.profileHeader{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+.profileInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+.profileName{
+  margin: 0;
+  font-size: 24px;
+}
+
+.profileStats{
+  margin: 5px 0 0 0;
+  color: #666;
+}
+
+.profile-pictures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-picture:hover{
+  cursor: pointer;
+}
+
+
+
+/* login form */
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-text {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+.form-submit-btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/* CREAPOST.JS css: */
+.create-post-container{
+  margin-top:60px
+}
+.create-post-form {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-form h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create-post-form input[type="file"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.create-post-form .form-group {
+  margin-bottom: 15px;
+}
+
+.create-post-form .form-label {
+  font-weight: bold;
+}
+
+.create-post-form .btn-primary {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.video-list {
+  margin-top: 20px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: left; 
+  gap:2.8rem;
+}
+
+.video-card {
+  margin-bottom: 20px;
+  width: calc(25% - 10px); /* Adjust spacing as needed */
+  margin: 5px;
+}
+
+.video-card video {
+  width: 100%;
+  height: auto;
+}
+
+.video-card .card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card .card-title {
+  font-size: 18px;
+}
+
+.video-card .card-text {
+  font-size: 14px;
+}
+
+.delete-button {
+  cursor: pointer;
+  color: red;
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .create-post-form {
+      padding: 10px;
+  }
+}
