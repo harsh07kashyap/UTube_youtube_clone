@@ -30,6 +30,7 @@ app.use(profileRouter)
 app.use(channelRouter)
 app.use(videoPlayerRouter)
 
+
 app.use("/api/auth",require("./routes/auth"));
 app.use("/api/posts",require("./routes/posts"));
 app.use("/api/homeContent",require("./routes/homeContent"));
@@ -38,7 +39,3 @@ app.use("/api/channel",require("./routes/channel"));
 app.use("/api/videoplayer",require("./routes/videoplayer.js"))
 app.use("/api/searchbar",require("./routes/searchbar.js"))
 
-
-app.listen(port,()=>{
-    console.log("example")
-})
