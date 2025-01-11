@@ -20,6 +20,7 @@ app.use(cors({
     credentials: true // If you need to send cookies or HTTP authentication
 }));
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/",(req,res)=>{
     res.status(200).send("Hello from the server")
@@ -39,3 +40,5 @@ app.use("/api/channel",require("./routes/channel"));
 app.use("/api/videoplayer",require("./routes/videoplayer.js"))
 app.use("/api/searchbar",require("./routes/searchbar.js"))
 
+
+module.exports = app;
