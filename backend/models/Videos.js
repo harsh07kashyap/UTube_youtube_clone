@@ -23,7 +23,10 @@ const VideoSchema=new Schema({
           date: { type: Date, default: Date.now }, // Date of the comment
         }
       ], 
-     
+      duration: {
+        type: String, 
+        required: true,
+      },
 });
 
 module.exports=mongoose.model("Video",VideoSchema)

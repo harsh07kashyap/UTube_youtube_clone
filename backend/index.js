@@ -30,6 +30,7 @@ app.use("/api/homeContent",require("./routes/homeContent"));
 app.use("/api/profile",require("./routes/profile"));
 app.use("/api/channel",require("./routes/channel"));
 app.use("/api/videoplayer",require("./routes/videoplayer.js"))
+app.use("/api/searchbar",require("./routes/searchbar.js"))
 
 
 app.listen(port,()=>{

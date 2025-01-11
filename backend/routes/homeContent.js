@@ -53,7 +53,8 @@ router.get("/fetchthumbnails", async (req, res) => {
       channelName: thumbnail.video?.user?.name || "Unknown channel",
       userid: thumbnail.video.user._id,
       initialSubscribersCount: thumbnail.video.user.followers,
-      profilePicture: profile ? profile.filename : null // Use profile picture if it exists
+      profilePicture: profile ? profile.filename : null, // Use profile picture if it existsnn
+      duration:thumbnail.video?.duration
     };
   }));
 

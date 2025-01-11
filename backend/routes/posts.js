@@ -6,7 +6,8 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const Thumbnail = require("../models/Thumbnails");
-// const ffmpeg = require('fluent-ffmpeg');
+const { getVideoDurationInSeconds } = require('get-video-duration');
+
 
 const videoUploadDir = path.join(__dirname, "../uploads/videos");
 const thumbnailUploadDir = path.join(__dirname, "../uploads/images");
@@ -68,30 +69,43 @@ router.post("/upload", fetchuser, (req, res) => {
     try {
       const videoFile = req.files.video[0];
       const thumbnailFile = req.files.thumbnail[0];
+      const videoPath = videoFile.path;
 
-        const video = new Video({
-          user: req.user.id,
-          filename: videoFile.filename,
-          path: videoFile.path,
-          originalname: videoFile.originalname,
-          title: req.body.title,
-          description: req.body.description,
-          uploadDate: new Date(),
-          
-        });
-        await video.save();
+      // Get the video duration in seconds
+      const durationInSeconds = await getVideoDurationInSeconds(videoPath);
 
-        const thumbnail = new Thumbnail({
-          video: video._id,
-          filename: thumbnailFile.filename,
-          path: thumbnailFile.path,
-          originalname: thumbnailFile.originalname,
-          views:0
-        });
-        await thumbnail.save();
+      // Convert seconds to minutes:seconds format
+      const minutes = Math.floor(durationInSeconds / 60);  // Get whole minutes
+      const seconds = Math.floor(durationInSeconds % 60);  // Get remaining seconds
 
-        return res.json({ message: "Video and thumbnail uploaded successfully" });
-  }
+      // Format it as mm:ss
+      const formattedDuration = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+      // Save the video with the duration
+      const video = new Video({
+        user: req.user.id,
+        filename: videoFile.filename,
+        path: videoFile.path,
+        originalname: videoFile.originalname,
+        title: req.body.title,
+        description: req.body.description,
+        uploadDate: new Date(),
+        duration: formattedDuration, // Store duration in seconds
+      });
+
+      await video.save();
+
+      const thumbnail = new Thumbnail({
+        video: video._id,
+        filename: thumbnailFile.filename,
+        path: thumbnailFile.path,
+        originalname: thumbnailFile.originalname,
+        views: 0,
+      });
+      await thumbnail.save();
+
+      return res.json({ message: "Video and thumbnail uploaded successfully" });
+    }
      catch (error) {
       console.error(error);
       return res.status(500).send("Server error");

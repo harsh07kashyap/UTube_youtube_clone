@@ -6,39 +6,7 @@ const jwt=require("jsonwebtoken")
 const fetchuser=require("../middleware/fetchuser")
 const JWT_SECRET="Harryisagood$oy";
 
-// Set up Multer storage
-// const profileDir = path.join(__dirname, "../uploads/profiles");
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//       cb(null, profileDir);
-//     },
-//     filename: (req, file, cb) => {
-//       cb(null, Date.now() + path.extname(file.originalname));
-//     },
-//   });
 
-//   const fileFilter = (req, file, cb) => {
-//     // const videoFiletypes = /mp4|webm|ogg/;
-//     const imageFiletypes = /jpg|jpeg|png|svg/;
-//     const extname = path.extname(file.originalname).toLowerCase();
-//     const mimetype = file.mimetype.toLowerCase();
-//     if (
-//       file.fieldname === "profilePicture" &&
-//       imageFiletypes.test(extname) &&
-//       imageFiletypes.test(mimetype)
-//     ) {
-//       cb(null, true);
-//     } 
-//      else {
-//       cb(new Error("Unsupported file type!"));
-//     }
-//   };
-  
-//   const upload = multer({
-//     storage: storage,
-//     limits: { fileSize: 100000000 }, // Limit size to 100MB
-//     fileFilter: fileFilter,
-//   });
 
 router.post("/createuser", async (req,res)=>{
     // const errors=validationResult(req);
