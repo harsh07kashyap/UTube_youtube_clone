@@ -6,8 +6,9 @@ const profileRouter = require('./routes/profile.js');
 const channelRouter = require('./routes/channel.js');
 const videoPlayerRouter = require('./routes/videoplayer.js');
 
+
 const app=express()
-const port=5000
+const port= process.env.PORT || 5000
 
 
 
@@ -19,6 +20,10 @@ app.use(cors({
     credentials: true // If you need to send cookies or HTTP authentication
 }));
 app.use(express.json())
+
+app.get("/",(req,res)=>{
+    res.status(200).send("Hello from the server")
+})
 
 app.use(uploadRouter)
 app.use(profileRouter)
@@ -35,5 +40,5 @@ app.use("/api/searchbar",require("./routes/searchbar.js"))
 
 
 app.listen(port,()=>{
-    // console.log("example")
+    console.log("example")
 })
