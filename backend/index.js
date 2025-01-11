@@ -10,9 +10,10 @@ const app=express()
 const port=5000
 
 
+
 app.use(cors())
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow only this origin to access the server
+    origin: ['http://localhost:3000',"https://u-tube-youtube-clone-frontend.vercel.app"], // Allow only this origin to access the server
     methods: 'GET,POST,PUT,DELETE,OPTIONS', // Allowed HTTP methods
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept', // Allowed headers
     credentials: true // If you need to send cookies or HTTP authentication
